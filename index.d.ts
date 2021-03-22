@@ -1,11 +1,8 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
 /// <reference types="next-images" />
+import '@emotion/react'
 
-declare module '*.graphqls' {
-  import { DocumentNode } from 'graphql'
-  export default typeof DocumentNode
-}
 
 declare namespace NodeJS {
   interface ProcessEnv {
@@ -87,4 +84,10 @@ declare global {
 interface Window {
   version: string
   next: any
+}
+
+declare module '@emotion/react' {
+  export interface Theme {
+    color: String
+  }
 }
