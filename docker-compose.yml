@@ -1,0 +1,14 @@
+version: "3.6"
+networks:
+  back:
+services:
+  client:
+    image: registry.2mx.org/nasonpearl/webapp:rc-0.1.0
+    # environment:
+      # NEXT_PUBLIC_APP_ENV: master
+    ports:
+      - 3000:3000
+    networks:
+      - back
+
+
