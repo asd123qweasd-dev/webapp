@@ -20,8 +20,8 @@ ENV NEXT_PUBLIC_APP_VERSION=$NEXT_PUBLIC_APP_VERSION
 ENV NODE_ENV=production
 ENV PATH $PATH:/app/node_modules/.bin
 WORKDIR /app
-COPY --from=build-target /app/next.config.js ./
-COPY --from=build-target /app/public public
-COPY --from=build-target /app/node_modules node_modules
-COPY --from=build-target /app/.next .next
+COPY --from=install-target /app/next.config.js ./
+COPY --from=install-target /app/public public
+COPY --from=install-target /app/node_modules node_modules
+COPY --from=install-target /app/.next .next
 CMD ["next", "start"]

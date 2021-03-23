@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "build:docker": "docker build --build-arg NEXT_PUBLIC_APP_ENV=${NEXT_PUBLIC_APP_ENV} -t webapp_dnr.dev ."
   },
   "dependencies": {
     "@babel/core": "^7.13.10",
