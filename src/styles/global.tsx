@@ -52,13 +52,6 @@ const styles = css`
     font-family: 'Helvetica', sans-serif;
     /* overflow-x: hidden; */
   }
-
-  .svg-sprite, .svg-sprite svg {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-  }
   
   ${scroll}
 `
