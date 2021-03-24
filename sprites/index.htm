@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru-RU" views="index">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="UTF-8">
+  <title>Спрайты</title>
+  <link rel="stylesheet" href="png-sprite-style.css">
+  <style>
+    html{font-size: 10px}
+    body{font-size: 1.6rem;max-width: 90rem;margin: 0 auto;text-align: center;padding-top: 2rem;}
+    .block1{
+      margin: 4rem 0 1rem
+    }
+    hr {
+      font-size: 2rem;
+    }
+    h3 {
+      display: block;
+      text-align: left;
+    }
+    .svg-items-wrap {
+      font-size: 4rem;
+      color: #494949;
+      line-height: 4rem;
+    }
+    .svg__item {
+      padding: 2rem;
+      display: inline-block;
+    }
+    .svg__icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      padding: 0rem;
+      background: none;
+      outline: none;
+      border: none;
+    }
+    .svg__item:hover {
+      background: #eee;
+    }
+    .svg__item:hover .svg__icon {
+      color: red;
+    }
+    .svg__icon svg {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+    .svg__name {
+      font-size: 1.6rem;
+      color: #000;
+    }
+    .settings {
+      text-align: left;
+      margin-bottom: 3rem;
+    }
+
+    .png-items-wrap {
+      font-size: 4rem;
+      color: #494949;
+      line-height: 4rem;
+    }
+    
+    .png__item {
+      padding: 2rem;
+      display: inline-block;
+    }
+    
+    .png__icon {
+      display: inline-block;
+      padding: 0rem;
+      background: none;
+      outline: none;
+      border: none;
+    }
+    .png__item:hover {
+      background: #eee;
+    }
+    .png__item:hover .png__icon {
+      color: red;
+    }
+    .png__name {
+      font-size: 1.6rem;
+      color: #000;
+    }
+    label {
+      user-select: none;
+    }
+  </style>
+  <script>
+    function cahngeSlider(val) {
+      document.querySelector('.svg-items-wrap').style.fontSize = `${val}rem`
+    }
+    function cahngeColor(val) {
+      document.querySelector('.svg-items-wrap').style.color = val
+    }
+    function cahngePngSize(val) {
+      document.querySelector('.png-items-wrap').classList.toggle('_max')
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <h2>SVG спрайт</h2>
+    <div class="settings">
+      <div>Размер</div>
+    <input type="range" min="1" max="30" value="4" oninput="cahngeSlider(this.value)" >
+      <div>Цвет иконки:</div>
+      <input type="color" value="#494949" oninput="cahngeColor(this.value)">
+    </div>
+    <div class="svg-items-wrap">
+      @@include('./app/svg.html')
+    </div>
+  </div>
+  <div>
+    <h2>Png спрайт</h2>
+    <div class="settings">
+      <input type="checkbox" name="size" id="pngFoolSize" oninput="cahngePngSize()">
+      <label for="pngFoolSize">
+         показать в полном размере
+      </label>
+    </div>
+    <div class="png-items-wrap">
+      @@include('./app/png.html')
+    </div>
+  </div>
+  @@include('./dist/svg-sprite.svg')
+</body>
+</html>
