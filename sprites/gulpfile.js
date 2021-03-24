@@ -11,11 +11,11 @@ gulp.task('server', function() {
 	browserSync.init({
 		server: './dist'
 	})
-	// browserSync.watch('./dist/*').on('change', browserSync.reload);
+	browserSync.watch('./dist/*').on('change', browserSync.reload);
 })
 
 gulp.task('fileinclude', function() {
-  return gulp.src(['./index.htm', './index.htm'])
+  return gulp.src(['./index.html'])
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
@@ -72,7 +72,7 @@ gulp.task('style', function() {
 
 gulp.task('watch', function() {
 	// htm
-  gulp.watch(['./app/*.htm', './index.htm', './dist/img/svg-sprite.svg'], gulp.series('fileinclude'));
+  gulp.watch(['./app/*.html', './index.html', './dist/img/svg-sprite.svg'], gulp.series('fileinclude'));
   
 	// Стили
 	gulp.watch(['./app/*.styl', './core/*.styl'], gulp.series('style'));
@@ -82,8 +82,7 @@ gulp.task('watch', function() {
   
 	// SVG Спрайт
 	gulp.watch('./app/svg-icons/**/*.svg', gulp.series('svg-sprite'));
-
-});
+})
 
 
 gulp.task('build',
@@ -91,5 +90,5 @@ gulp.task('build',
 );
 
 gulp.task('default',
-	gulp.series('svg-sprite', 'png-sprite', 'style',  gulp.parallel('server', 'watch'))
+	gulp.series('svg-sprite', 'png-sprite', 'style', 'fileinclude', gulp.parallel('server', 'watch'))
 );

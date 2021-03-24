@@ -1,11 +1,12 @@
 import { css, Global } from '@emotion/react'
 import { media, scroll } from '~/styles'
+import { svgSprite } from './svg-sprite'
 
 const styles = css`
   * {
     box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 300;
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
   }
 
   html {
@@ -49,11 +50,12 @@ const styles = css`
 
   body{
     font-size: 1.6rem;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Inter', sans-serif;
     /* overflow-x: hidden; */
   }
   
   ${scroll}
+  ${svgSprite}
 `
 export const globalStyles = () => {
   return <Global styles={styles} />
