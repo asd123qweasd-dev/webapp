@@ -1,5 +1,6 @@
 import { css, Global } from '@emotion/react'
 import { media, scroll } from '~/styles'
+import { svgSprite } from './svg-sprite'
 
 const styles = css`
   * {
@@ -54,6 +55,7 @@ const styles = css`
   }
   
   ${scroll}
+  ${svgSprite}
 `
 export const globalStyles = () => {
   return <Global styles={styles} />
