@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "build:rem": "node ./px-to-rem.js",
     "build:docker": "docker build --build-arg NEXT_PUBLIC_APP_ENV=${NEXT_PUBLIC_APP_ENV} -t webapp_dnr.dev ."
   },
   "dependencies": {
@@ -18,6 +19,7 @@
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@reduxjs/toolkit": "^1.5.0",
+    "antd": "^4.14.1",
     "next": "10.0.9",
     "next-optimized-images": "^2.6.2",
     "react": "17.0.1",
@@ -30,6 +32,8 @@
     "@types/react-dom": "^17.0.2",
     "@types/react-redux": "^7.1.16",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.8",
+    "postcss-pxtorem": "^6.0.0",
     "typescript": "^4.0.7"
   }
 }

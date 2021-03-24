@@ -5,6 +5,8 @@ import { globalStyles } from '~/styles/global'
 import { Provider } from 'react-redux'
 import store from '~/store'
 import { ConditionallyRender } from '~/components/ConditionallyRender'
+import '~/assets/antd.css'
+import '../../public/icons/png-sprite-style.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
