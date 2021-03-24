@@ -9,6 +9,9 @@
     "build:svg": "gulp svg-sprite",
     "build:png": "gulp png-sprite"
   },
+  "resolutions": {
+    "chokidar": "^3.4.0"
+  },
   "author": "reskwer",
   "license": "ISC",
   "devDependencies": {
