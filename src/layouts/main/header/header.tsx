@@ -5,6 +5,7 @@ import Logo from '~/layouts/main/logo'
 import { Navigation } from '../navigation'
 import SvgIcon from '~/components/SvgIcon'
 import { container } from '~/styles/container'
+import { navigationLinks } from '~/data'
 
 interface HeaderProps {}
 
@@ -14,10 +15,13 @@ const _Header: FC<HeaderProps> = () => {
       <Container>
         <Logo />
         <Navigation hideOnMobile>
-          <Navigation.Link href="/news">Новости</Navigation.Link>
-          <Navigation.Link href="/events">События</Navigation.Link>
-          <Navigation.Link href="/training">Обучения</Navigation.Link>
-          <Navigation.Link href="/jobs">Работа</Navigation.Link>
+          {navigationLinks.map(({id, href, name}) => {
+            return (
+              <Navigation.Link href={href} key={id} >
+                {name}
+              </Navigation.Link>
+            )
+          })}
         </Navigation>
         <Logout>
           <LogoutIcon name="user"/>
