@@ -2,15 +2,23 @@ import React, { FC } from 'react'
 import styled from '@emotion/styled'
 import SvgIcon from '~/components/SvgIcon'
 import Link from 'next/link'
+import { config } from '~/helpers/config'
 
-interface LogoProps {}
+interface LogoProps {
+  version?: boolean
+  text?: boolean
+}
 
-const _Logo: FC<LogoProps> = () => {
+const _Logo: FC<LogoProps> = ({version, text}) => {
   return (
     <Link href="/" passHref>
       <Logo>
         <LogoIcon name="logo" />
-        <Text>DNR.dev</Text>
+        { text &&
+          <Text>
+            DNR.dev { version && <Version>{config().version}</Version> }
+          </Text>
+        }
       </Logo>
     </Link>
   )
@@ -33,6 +41,12 @@ const Text = styled.div`
   font-weight: 600;
   font-size: 2rem;
   line-height: 2rem;
+  transition: opacity .3s, color .3s;
+`
+const Version = styled.span`
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 0;
   transition: opacity .3s, color .3s;
 `
 const LogoIcon = styled(SvgIcon)`

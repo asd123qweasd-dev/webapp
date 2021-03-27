@@ -13,7 +13,7 @@ const _Header: FC<HeaderProps> = () => {
   return (
     <Header>
       <Container>
-        <Logo />
+        <Logo text/>
         <Navigation hideOnMobile>
           {navigationLinks.map(({id, href, name}) => {
             return (

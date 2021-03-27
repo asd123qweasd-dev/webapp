@@ -14,7 +14,7 @@ const _Footer: FC<FooterProps> = () => {
     <Footer>
       <Container>
         <Left>
-          <Logo />
+          <Logo text version/>
           <Navigation>
             {navigationLinks.map(({id, href, name}) => {
               return (

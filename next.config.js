@@ -3,17 +3,20 @@ const withOptimizedImages = require('next-optimized-images');
 module.exports = withOptimizedImages({
   optimizeImages: false,
   publicRuntimeConfig: {
-    'local': { // дефолт
+    'local': { // dev режим
       ssrApiUrl: 'https://dnr.dev/api',
-      clientApiUrl: 'https://dnr.dev/api'
+      clientApiUrl: 'https://dnr.dev/api',
+      version: 'dev'
     },
     'master': {
       ssrApiUrl: 'https://dnr.dev/api',
-      clientApiUrl: 'https://dnr.dev/api'
+      clientApiUrl: 'https://dnr.dev/api',
+      version: process.env.NEXT_PUBLIC_APP_VERSION
     },
-    'dev': {
+    'alpha': {
       ssrApiUrl: 'https://dnr.dev/api',
-      clientApiUrl: 'https://dnr.dev/api'
+      clientApiUrl: 'https://dnr.dev/api',
+      version: `alpha:${process.env.NEXT_PUBLIC_APP_VERSION}`
     }
   },
   images: {
