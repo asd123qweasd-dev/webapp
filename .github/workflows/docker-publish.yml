@@ -37,7 +37,7 @@ jobs:
         shell: bash
         run: |
           GITHUB_REF=$(echo ${GITHUB_REF#refs/heads/})
-          echo GITHUB_REF
+          echo GITHUB_REF=$GITHUB_REF
           echo "##[set-output name=branch;]$GITHUB_REF"
         id: extract_branch
 
