@@ -16,7 +16,7 @@ module.exports = withOptimizedImages({
     'alpha': {
       ssrApiUrl: 'https://dnr.dev/api',
       clientApiUrl: 'https://dnr.dev/api',
-      version: `alpha:${process.env.NEXT_PUBLIC_APP_VERSION}`
+      version: process.env.NEXT_PUBLIC_APP_VERSION
     }
   },
   images: {

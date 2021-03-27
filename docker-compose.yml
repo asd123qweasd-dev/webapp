@@ -2,12 +2,16 @@ version: "3.6"
 networks:
   back:
 services:
-  client:
-    image: registry.2mx.org/nasonpearl/webapp:rc-0.1.0
-    # environment:
-      # NEXT_PUBLIC_APP_ENV: master
+  prod:
+    image: ghcr.io/donetsk-dev/webapp_dnr.dev:alpha
     ports:
       - 3000:3000
+    networks:
+      - back
+  alpha:
+    image: ghcr.io/donetsk-dev/webapp_dnr.dev:alpha
+    ports:
+      - 3001:3000
     networks:
       - back
 
