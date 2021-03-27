@@ -8,7 +8,7 @@ import { MobileNavigation } from './mobileNavigation'
 
 interface MainProps {}
 
-const _Main: FC<MainProps> = () => {
+const _Main: FC<MainProps> = ({children}) => {
   return (
     <Main>
       <MobileNavigation>
@@ -21,7 +21,9 @@ const _Main: FC<MainProps> = () => {
         })}
       </MobileNavigation>
       <Header />
-      <Content />
+      <Content>
+        {children}
+      </Content>
       <Footer />
     </Main>
   )
