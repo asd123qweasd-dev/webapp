@@ -2,16 +2,22 @@ version: "3.6"
 networks:
   back:
 services:
-  prod:
-    image: ghcr.io/donetsk-dev/webapp_dnr.dev:alpha
+  master:
+    image: ghcr.io/donetsk-dev/webapp_dnr.dev:0.0.1
     ports:
       - 3000:3000
+    networks:
+      - back
+  master-latest:
+    image: ghcr.io/donetsk-dev/webapp_dnr.dev:latest
+    ports:
+      - 3001:3000
     networks:
       - back
   alpha:
     image: ghcr.io/donetsk-dev/webapp_dnr.dev:alpha
     ports:
-      - 3001:3000
+      - 3002:3000
     networks:
       - back
 
