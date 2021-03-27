@@ -41,13 +41,24 @@ jobs:
           echo "##[set-output name=branch;]$GITHUB_REF"
         id: extract_branch
 
+      - name: Extract version
+        shell: bash
+        run: |
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          [ "$VERSION" == "master" ] && VERSION=latest
+          [ "$VERSION" == "alpha" ] && VERSION=alpha
+          echo VERSION=$VERSION
+          echo "##[set-output name=version;]$VERSION"
+        id: extract_version
+
       # - name: Build image
       #   run: |
-      #     VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+      #     GITHUB_REF=${{ steps.extract_branch.outputs.branch }}
+      #     VERSION=${{ steps.extract_version.outputs.version }}
       #     [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
       #     [ "$VERSION" == "master" ] && VERSION=latest
       #     [ "$VERSION" == "alpha" ] && VERSION=alpha
-      #     GITHUB_REF=${{ steps.extract_branch.outputs.branch }}
       #     echo VERSION=$VERSION
       #     echo GITHUB_REF=$GITHUB_REF
       #     docker build . --file Dockerfile --build-arg NEXT_PUBLIC_APP_VERSION=$VERSION --build-arg NEXT_PUBLIC_APP_REF=$GITHUB_REF --tag $IMAGE_NAME
