@@ -1,4 +1,4 @@
-import { Navigation } from './Navigation'
+import { Navigation } from './navigation'
 
 export { Navigation }
 export default Navigation

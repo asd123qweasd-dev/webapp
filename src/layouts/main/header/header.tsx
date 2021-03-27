@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import styled from '@emotion/styled'
 import { media } from '~/styles'
 import Logo from '~/layouts/main/logo'
-import { Navigation } from '../Navigation'
+import { Navigation } from '../navigation'
 import SvgIcon from '~/components/SvgIcon'
 import { container } from '~/styles/container'
 
@@ -13,12 +13,12 @@ const _Header: FC<HeaderProps> = () => {
     <Header>
       <Container>
         <Logo />
-        <Navigation links={[
-          {name: 'Новости', url: '/news'},
-          {name: 'События', url: '/events'},
-          {name: 'Обучения', url: '/training'},
-          {name: 'Работа', url: '/jobs'}
-        ]}/>
+        <Navigation hideOnMobile>
+          <Navigation.Link href="/news">Новости</Navigation.Link>
+          <Navigation.Link href="/events">События</Navigation.Link>
+          <Navigation.Link href="/training">Обучения</Navigation.Link>
+          <Navigation.Link href="/jobs">Работа</Navigation.Link>
+        </Navigation>
         <Logout>
           <LogoutIcon name="user"/>
         </Logout>
