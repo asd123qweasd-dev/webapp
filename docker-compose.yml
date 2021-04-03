@@ -3,7 +3,7 @@ networks:
   back:
 services:
   master:
-    image: ghcr.io/donetsk-dev/webapp_dnr.dev:0.0.1
+    image: ghcr.io/donetsk-dev/webapp_dnr.dev:0.0.2
     ports:
       - 3000:3000
     networks:
