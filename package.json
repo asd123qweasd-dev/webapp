@@ -20,11 +20,14 @@
     "@emotion/styled": "^11.1.5",
     "@reduxjs/toolkit": "^1.5.0",
     "antd": "^4.14.1",
+    "axios": "^0.21.1",
+    "fs-extra": "^9.1.0",
     "next": "10.0.9",
     "next-optimized-images": "^2.6.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-redux": "^7.2.3"
+    "react-redux": "^7.2.3",
+    "swr": "^0.5.5"
   },
   "devDependencies": {
     "@types/node": "^12.20.6",

@@ -20,10 +20,10 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "~/*": [
-        "./*"
+        "./src/*"
       ]
     }
   },
@@ -31,6 +31,7 @@
     "node_modules"
   ],
   "include": [
+    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ]

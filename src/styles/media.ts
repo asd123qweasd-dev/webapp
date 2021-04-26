@@ -1,7 +1,7 @@
 
 export const media = {
   touch: '@media (hover: none) and (pointer: coarse)',
-  mobile: '@media (max-width: 599px)',
+  mobile: '@media (max-width: 767px)',
   mobile__portrait: '@media (hover: none) and (pointer: coarse) and (orientation: portrait) and (max-width: 599px) and (max-height: 900px)',
   mobile__landscape: '@media (hover: none) and (pointer: coarse) and (orientation: landscape) and (max-width: 900px) and (max-height: 599px) ',
 
