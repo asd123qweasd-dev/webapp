@@ -1,9 +1,7 @@
-import { auth } from './auth'
-import { users } from './users'
-import { roles } from './roles'
-import { permissions } from './permissions'
-import { category } from './category'
 import { posts } from './posts'
+import { users } from './users'
+import { category } from './category'
+import { auth } from './auth'
 
 export type ApiPaginationLinks = {
   first: Maybe<string>
@@ -27,18 +25,16 @@ export type ApiPaginationMeta = {
   total: number
 }
 export type ApiPagination<T> = {
-  data: T[]|undefined
+  data: T[] | undefined
   links: ApiPaginationLinks
   meta: ApiPaginationMeta
 }
 
 export const api = {
   auth,
+  posts,
   users,
-  roles,
-  permissions,
-  category,
-  posts
+  category
 }
 
 export default api

@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC } from 'react'
+import React, { FC } from 'react'
 import styled from '@emotion/styled'
 import placeholderImage from '~/assets/placeholder-image.png'
 import { media } from '~/styles'
@@ -6,11 +6,11 @@ import { lineClamp } from '~/styles/lineClamp'
 
 
 interface NewsItemProps {
-  title?: string
-  text?: string
-  image?: string
-  company?: string
-  createdAt?: string
+  title?: Maybe<string>
+  text?: Maybe<string>
+  image?: Maybe<string>
+  company?: Maybe<string>
+  createdAt?: Maybe<string>
 }
 
 const _NewsItem: FC<NewsItemProps> = ({ title, text, image, company, createdAt, ...rest }) => {

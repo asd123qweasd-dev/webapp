@@ -2,64 +2,30 @@ import React, { FC } from 'react'
 import styled from '@emotion/styled'
 import NewsItemComponent from '~/components/newsItem'
 import { media } from '~/styles'
+import { useGetPosts } from '~/hooks/useGetPosts'
+import { getS3ImageUrl } from '~/helpers/getS3ImageUrl'
 
 interface NewsViewProps {}
 
 const _NewsView: FC<NewsViewProps> = () => {
+  const { data } = useGetPosts()
   
   return (
     <NewsView>
       <Title>Новости</Title>
       <NewsWrap>
-        <NewsItem
-          title={'Ответ Android. Операционная система от Huawei появится на смартфонах в 2020 году'}
-          text={'Президент Huawei доктор Ван Чэн Лу заявил на конференции разработчиков, что операционная система HarmonyOS начнет появляться на смартфонах компании в следующем году.'}
-          image={undefined}
-          company={'IT Company Name'}
-          createdAt={'12.12.2019'}
-        />
-        <NewsItem
-          title={'Ответ Android. Операционная система от Huawei появится на смартфонах в 2020 году'}
-          text={'Президент Huawei доктор Ван Чэн Лу заявил на конференции разработчиков, что операционная система HarmonyOS начнет появляться на смартфонах компании в следующем году.'}
-          image={undefined}
-          company={'IT Company Name'}
-          createdAt={'12.12.2019'}
-        />
-        <NewsItem
-          title={'Ответ Android. Операционная система от Huawei появится на смартфонах в 2020 году'}
-          text={'Президент Huawei доктор Ван Чэн Лу заявил на конференции разработчиков, что операционная система HarmonyOS начнет появляться на смартфонах компании в следующем году.'}
-          image={undefined}
-          company={'IT Company Name'}
-          createdAt={'12.12.2019'}
-        />
-        <NewsItem
-          title={'Ответ Android. Операционная система от Huawei появится на смартфонах в 2020 году'}
-          text={'Президент Huawei доктор Ван Чэн Лу заявил на конференции разработчиков, что операционная система HarmonyOS начнет появляться на смартфонах компании в следующем году.'}
-          image={undefined}
-          company={'IT Company Name'}
-          createdAt={'12.12.2019'}
-        />
-        <NewsItem
-          title={'Ответ Android. Операционная система от Huawei появится на смартфонах в 2020 году'}
-          text={'Президент Huawei доктор Ван Чэн Лу заявил на конференции разработчиков, что операционная система HarmonyOS начнет появляться на смартфонах компании в следующем году.'}
-          image={undefined}
-          company={'IT Company Name'}
-          createdAt={'12.12.2019'}
-        />
-        <NewsItem
-          title={'Ответ Android. Операционная система от Huawei появится на смартфонах в 2020 году'}
-          text={'Президент Huawei доктор Ван Чэн Лу заявил на конференции разработчиков, что операционная система HarmonyOS начнет появляться на смартфонах компании в следующем году.'}
-          image={undefined}
-          company={'IT Company Name'}
-          createdAt={'12.12.2019'}
-        />
-        <NewsItem
-          title={'Ответ Android. Операционная система от Huawei появится на смартфонах в 2020 году'}
-          text={'Президент Huawei доктор Ван Чэн Лу заявил на конференции разработчиков, что операционная система HarmonyOS начнет появляться на смартфонах компании в следующем году.'}
-          image={undefined}
-          company={'IT Company Name'}
-          createdAt={'12.12.2019'}
-        />
+        { data?.data?.map(item => {
+          return (
+            <NewsItem
+              key={item.id}
+              title={item.name}
+              text={item.intro}
+              image={getS3ImageUrl(item.image)}
+              company={'IT Company Name'}
+              createdAt={'12.12.2019'}
+            />
+          )
+        })}
       </NewsWrap>
     </NewsView>
   )

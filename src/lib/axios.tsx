@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { getSession } from '~/helpers/session';
 import {apiErrorHandler} from '~/helpers/apiErrorHandler'
+import { isServer } from '~/helpers/is';
+import { config } from '~/helpers/config';
 
 
 const instance = axios.create({
-  baseURL: '/api'
+  baseURL: isServer() ? config().ssrApiUrl : config().clientApiUrl
 })
 
 instance.interceptors.request.use(function (config) {
@@ -22,7 +24,6 @@ instance.interceptors.response.use(function (response) {
   apiErrorHandler(error)
   return Promise.reject(error);
 });
-
 
 const defaultFetcher = (url: string) => instance.get(url).then(res => res.data)
 
