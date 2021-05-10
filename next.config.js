@@ -26,7 +26,7 @@ module.exports = withOptimizedImages({
     }
   },
   images: {
-    domains: ['dnr.dev', 'localhost'],
+    domains: ['dnr.dev', 'localhost', 'dnr-dev.storage.yandexcloud.net'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840]
   }
 })

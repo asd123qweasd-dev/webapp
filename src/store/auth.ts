@@ -37,7 +37,7 @@ export const authSlice = createSlice({
 
 export const { changeLoader, setSession, changeMe } = authSlice.actions
 
-export const logout = (): AppThunk => async (dispatch, getState) => {
+export const logout = (): AppThunk => async (dispatch) => {
   dispatch(changeLoader(true))
   try {
     await api.auth.logout()
@@ -51,7 +51,7 @@ export const logout = (): AppThunk => async (dispatch, getState) => {
   dispatch(changeLoader(false))
 }
 
-export const getMe = (): AppThunk => async (dispatch, getState) => {
+export const getMe = (): AppThunk => async (dispatch) => {
   dispatch(changeLoader(true))
   try {
     const { data } = await api.auth.me()

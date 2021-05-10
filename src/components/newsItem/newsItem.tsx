@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import placeholderImage from '~/assets/placeholder-image.png'
 import { media } from '~/styles'
 import { lineClamp } from '~/styles/lineClamp'
+import NextImage from 'next/image'
 
 
 interface NewsItemProps {
@@ -17,7 +18,13 @@ const _NewsItem: FC<NewsItemProps> = ({ title, text, image, company, createdAt, 
   return (
     <NewsItem { ...rest }>
       <Title>{ title }</Title>
-      <Image src={image || placeholderImage} />
+      <Image 
+        src={image || placeholderImage} 
+        width="374" 
+        height="280"
+        objectFit="contain"
+        alt={title || 'dnr.dev - изображение'}
+      />
       <Text>{ text }</Text>
       <Footer>
         <CompanyName>{ company }</CompanyName>
@@ -43,9 +50,11 @@ const Title = styled.div`
   font-size: 2rem;
   line-height: 2.4rem;
   margin-bottom: 2rem;
+  display: block;
+  height: 7.2rem;
   ${lineClamp(3)}
 `
-const Image = styled.img`
+const Image = styled(NextImage)`
   width: 100%;
   margin-bottom: 2rem;
   height: 30rem;
@@ -56,10 +65,11 @@ const Image = styled.img`
 const Text = styled.div`
   margin-bottom: 2rem;
   font-size: 1.4rem;
+  height: 6.6rem;
   ${lineClamp(3)}
 `
 const Footer = styled.div`
-  color: #8F95A3;
+  /* color: #8F95A3; */
   font-size: 1.3rem;
   display: flex;
   justify-content: space-between;

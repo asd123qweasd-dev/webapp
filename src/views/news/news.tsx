@@ -4,6 +4,7 @@ import NewsItemComponent from '~/components/newsItem'
 import { media } from '~/styles'
 import { useGetPosts } from '~/hooks/useGetPosts'
 import { getS3ImageUrl } from '~/helpers/getS3ImageUrl'
+import { formatDate } from '~/helpers/formatDate'
 
 interface NewsViewProps {}
 
@@ -21,8 +22,8 @@ const _NewsView: FC<NewsViewProps> = () => {
               title={item.name}
               text={item.intro}
               image={getS3ImageUrl(item.image)}
-              company={'IT Company Name'}
-              createdAt={'12.12.2019'}
+              company={item.author.name}
+              createdAt={formatDate(item.published_at)}
             />
           )
         })}

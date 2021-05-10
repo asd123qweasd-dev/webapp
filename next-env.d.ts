@@ -16,3 +16,8 @@ interface Window {
 }
 
 declare type Maybe<T> = T | null;
+
+declare module '*.png' {
+  const src: string;
+  export default src;
+}
