@@ -18,10 +18,11 @@ const _NewsItem: FC<NewsItemProps> = ({ title, text, image, company, createdAt, 
   return (
     <NewsItem { ...rest }>
       <Title>{ title }</Title>
-      <Image 
+      <NextImage 
         src={image || placeholderImage} 
-        width="374" 
-        height="280"
+        width="374px"
+        height="280px"
+        // layout={'fill' as any}
         objectFit="contain"
         alt={title || 'dnr.dev - изображение'}
       />
@@ -42,7 +43,7 @@ const NewsItem = styled.div`
     padding: 3.2rem;
     border: 1px solid #D5D7DD;
     width: calc(50% - 1rem);
-    height: 56.4rem;
+    height: 53.5rem;
   }
 `
 const Title = styled.div`
@@ -54,14 +55,14 @@ const Title = styled.div`
   height: 7.2rem;
   ${lineClamp(3)}
 `
-const Image = styled(NextImage)`
-  width: 100%;
-  margin-bottom: 2rem;
-  height: 30rem;
-  ${media.tablet} {
-    height: 28rem;
-  }
-`
+// const Image = styled(NextImage)`
+//   width: 100%;
+//   margin-bottom: 2rem;
+//   height: 30rem;
+//   ${media.tablet} {
+//     height: 28rem;
+//   }
+// `
 const Text = styled.div`
   margin-bottom: 2rem;
   font-size: 1.4rem;

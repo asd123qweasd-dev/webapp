@@ -6,9 +6,9 @@ import { defaultFetcher } from '~/lib/axios'
 
 export function useGetPosts(config?: SWRConfiguration) {
   // Если есть кэш - инициализируем, (для SSR)
-  config?.initialData && mutate('/posts', config.initialData)
+  config?.initialData && mutate('/site/posts', config.initialData)
   // запрашиваем данные
-  const { data, error } = useSWR<ApiPagination<Post>>(`/posts`, defaultFetcher, config)
+  const { data, error } = useSWR<ApiPagination<Post>>(`/site/posts`, defaultFetcher, config)
 
   return {
     data,

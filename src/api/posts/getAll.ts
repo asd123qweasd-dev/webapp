@@ -10,3 +10,10 @@ export function getAll(): AxiosPromise<ApiPagination<Post>> {
     method: 'get'
   })
 }
+
+export function getSiteAll(): AxiosPromise<ApiPagination<Post>> {
+  return axios({
+    url: '/site/posts',
+    method: 'get'
+  })
+}

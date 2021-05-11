@@ -5,6 +5,7 @@ import { media } from '~/styles'
 import { useGetPosts } from '~/hooks/useGetPosts'
 import { getS3ImageUrl } from '~/helpers/getS3ImageUrl'
 import { formatDate } from '~/helpers/formatDate'
+import { Container } from '~/styles/container'
 
 interface NewsViewProps {}
 
@@ -12,23 +13,25 @@ const _NewsView: FC<NewsViewProps> = () => {
   const { data } = useGetPosts()
   
   return (
-    <NewsView>
-      <Title>Новости</Title>
-      <NewsWrap>
-        { data?.data?.map(item => {
-          return (
-            <NewsItem
-              key={item.id}
-              title={item.name}
-              text={item.intro}
-              image={getS3ImageUrl(item.image)}
-              company={item.author.name}
-              createdAt={formatDate(item.published_at)}
-            />
-          )
-        })}
-      </NewsWrap>
-    </NewsView>
+    <Container>
+      <NewsView>
+        <Title>Новости</Title>
+        <NewsWrap>
+          { data?.data?.map(item => {
+            return (
+              <NewsItem
+                key={item.id}
+                title={item.name}
+                text={item.intro}
+                image={getS3ImageUrl(item.image)}
+                company={item.author.name}
+                createdAt={formatDate(item.published_at)}
+              />
+            )
+          })}
+        </NewsWrap>
+      </NewsView>
+    </Container>
   )
 }
 

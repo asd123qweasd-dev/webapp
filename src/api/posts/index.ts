@@ -1,4 +1,4 @@
-import { getAll } from './getAll'
+import { getAll, getSiteAll } from './getAll'
 import { getOne } from './getOne'
 import { create } from './create'
 import { update } from './update'
@@ -45,6 +45,7 @@ export type PostInput = Partial<Omit<Post,
 
 export const posts = {
   getAll,
+  getSiteAll,
   getOne,
   create,
   update,
