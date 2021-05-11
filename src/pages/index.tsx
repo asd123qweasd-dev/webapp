@@ -1,8 +1,10 @@
+import {NewsView} from '~/views/news'
+import {Container} from '~/styles/container'
 
 export default function Home() {
   return (
-    <div className="asd">
-      Главная
-    </div>
+    <Container>
+      <NewsView />
+    </Container>
   )
 }

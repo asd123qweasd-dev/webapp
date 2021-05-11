@@ -14,3 +14,10 @@ interface Window {
   version: string
   next: any
 }
+
+declare type Maybe<T> = T | null;
+
+declare module '*.png' {
+  const src: string;
+  export default src;
+}

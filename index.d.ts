@@ -91,3 +91,5 @@ declare module '@emotion/react' {
     color: String
   }
 }
+
+declare type Maybe<T> = T | null;

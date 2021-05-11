@@ -9,14 +9,17 @@ export const scroll = css`
 
   ::-webkit-scrollbar-button{
     width: 0px;
-    height: 0px;}
+    height: 0px;
+  }
 
   ::-webkit-scrollbar-thumb{
     background: #979899;
     border: 9px none #979899;
     transition: background .3s;
     cursor: pointer;
-    border-radius: 50px;}
+    border-radius: 50px;
+    cursor: pointer;
+  }
 
   ::-webkit-scrollbar-thumb:hover{
     background: darken(#979899, 20%);
@@ -35,7 +38,7 @@ export const scroll = css`
 
   ::-webkit-scrollbar-track:hover{
     background: #F5F5F7;
-    }
+  }
 
   ::-webkit-scrollbar-track:active{
     background: #F5F5F7;
