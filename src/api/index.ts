@@ -25,7 +25,7 @@ export type ApiPaginationMeta = {
   total: number
 }
 export type ApiPagination<T> = {
-  data: T[] | undefined
+  data: T[]
   links: ApiPaginationLinks
   meta: ApiPaginationMeta
 }

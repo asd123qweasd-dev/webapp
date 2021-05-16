@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import styled from '@emotion/styled'
-import NewsItemComponent from '~/components/newsItem'
+import NewsItemComponent from '~/components/newsItem2'
 import { media } from '~/styles'
 import { useGetPosts } from '~/hooks/useGetPosts'
 import { getS3ImageUrl } from '~/helpers/getS3ImageUrl'
@@ -10,22 +10,26 @@ import { Container } from '~/styles/container'
 interface NewsViewProps {}
 
 const _NewsView: FC<NewsViewProps> = () => {
-  const { data } = useGetPosts()
+  const { data:posts } = useGetPosts()
   
   return (
     <Container>
       <NewsView>
         <Title>Новости</Title>
         <NewsWrap>
-          { data?.data?.map(item => {
+          { posts?.data.map(item => {
             return (
               <NewsItem
                 key={item.id}
+                slug={item.slug}
                 title={item.name}
                 text={item.intro}
                 image={getS3ImageUrl(item.image)}
                 company={item.author.name}
-                createdAt={formatDate(item.published_at)}
+                contentBg="black"
+                contentColor="black"
+                titleColor="black"
+                contentPosition="bottom"
               />
             )
           })}
